@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 class PostTest {
 
@@ -18,6 +18,7 @@ class PostTest {
                     // Проверки
                     .then()
                     .statusCode(200)
+                    .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
                     .header("Content-Type", "application/json; charset=utf-8")
                     .header("Content-Length", "424")
                     .header("Connection", "keep-alive")
