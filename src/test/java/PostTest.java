@@ -19,7 +19,7 @@ class PostTest {
                     .then()
                     .statusCode(200)
                     .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
-                    .header("Content-Type", "application/json; charset=utf-8888")
+                    .header("Content-Type", "application/json; charset=utf-8")
                     .header("Connection", "keep-alive")
                     .header("Vary", "Accept-Encoding");
         }
